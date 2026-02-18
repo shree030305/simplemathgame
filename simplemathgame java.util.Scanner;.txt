@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class MathGame {
+    public static boolean isPrime(int number) {
+        if (number <= 1) {
+            return false;
+        }
+
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter a number:");
+        int number = scanner.nextInt();
+
+        boolean prime = isPrime(number);
+
+        if (prime && number % 2 == 0) {
+            System.out.println("Prime Even Number!");
+            System.out.println("You must do sit-ups!");
+        }
+      
+        else if (prime && number % 2 != 0) {
+            System.out.println("Prime Odd Number!");
+            System.out.println("You must drink a glass of water!");
+        }
+        else if (number % 2 == 0) {
+            System.out.println("Even Number!");
+            System.out.println("sing a song!");
+        }
+
+        else {
+            System.out.println("Odd Number!");
+            System.out.println("You must sing a song!");
+        }
+
+        scanner.close();
+    }
+}
